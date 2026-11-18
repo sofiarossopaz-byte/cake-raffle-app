@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Join our Cake Raffle and win a delicious cake!">
+
+    <title>Cake Raffle</title>
+
+    <!-- Link to the CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link to the JavaScript file -->
+    <script src="actions.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER SECTION -->
+    <header>
+        <h1>🎂 Cake Raffle 🎉</h1>
+        <p>Join the fun and win a delicious cake!</p>
+    </header>
+
+    <!-- MAIN APPLICATION CONTAINER -->
+    <main class="container">
+
+        <!-- PARTICIPANT ENTRY FORM -->
+        <section class="entry-section">
+
+            <h2>Enter the Raffle!</h2>
+
+            <p>Enter your name to participate in the draw.</p>
+
+            <form id="participant-form">
+
+                <input
+                    type="text"
+                    id="participant-name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <button type="submit" id="add-button">
+                    Add Participant
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- PARTICIPANTS LIST -->
+        <section class="participants-section">
+
+            <h2>🎟️ Participants</h2>
+
+            <p>
+                Total Participants:
+                <span id="participant-count">0</span>
+            </p>
+
+            <ul id="participants-list">
+                <!-- Participant names will appear here -->
+            </ul>
+
+        </section>
+
+        <!-- WINNER DISPLAY AREA -->
+        <section class="winner-section">
+
+            <h2>🏆 The Lucky Winner</h2>
+
+            <div id="winner-display">
+                <p>Your winner will appear here!</p>
+            </div>
+
+        </section>
+
+        <!-- DRAW BUTTON -->
+        <section class="draw-section">
+
+            <button type="button" id="draw-button" disabled>
+                🎉 Draw Winner 🎉
+            </button>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Made with 💚 and 🍰 | Cake Raffle</p>
+    </footer>
+
+</body>
+
+</html>

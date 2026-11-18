@@ -1,0 +1,211 @@
+
+/* Define the main color palette */
+:root {
+    --pink: #ff4081;
+    --sage: #8FBC8F;
+    --green: #477A55;
+    --soft-pink: #E88EAA;
+    --cream: #FFF5E8;
+    --white: #ffffff;
+}
+
+/* Apply basic styles to the entire page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the main body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cream);
+    color: var(--green);
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* Style the header section */
+header {
+    background: linear-gradient(135deg, var(--pink), var(--soft-pink), var(--sage));
+    color: var(--white);
+    padding: 45px 20px;
+}
+
+/* Style the main heading */
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+}
+
+/* Style the header description */
+header p {
+    font-size: 1.2rem;
+}
+
+/* Style the main container */
+.container {
+    max-width: 700px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+/* Style all application sections */
+section {
+    background-color: var(--white);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(71, 122, 85, 0.15);
+}
+
+/* Style section headings */
+section h2 {
+    color: var(--green);
+    margin-bottom: 15px;
+}
+
+/* Style section descriptions */
+section p {
+    margin-bottom: 15px;
+}
+
+/* Style the participant input field */
+input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid var(--sage);
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+/* Highlight the input when selected */
+input[type="text"]:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 8px rgba(255, 64, 129, 0.25);
+}
+
+/* Style all buttons */
+button {
+    border: none;
+    border-radius: 25px;
+    padding: 13px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Style the Add Participant button */
+#add-button {
+    background-color: var(--sage);
+    color: var(--green);
+    width: 100%;
+}
+
+/* Change the Add Participant button on hover */
+#add-button:hover {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+/* Style the participants list */
+#participants-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+/* Style each participant name */
+#participants-list li {
+    background-color: var(--cream);
+    border-left: 5px solid var(--sage);
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    text-align: left;
+}
+
+/* Highlight the participant counter */
+#participant-count {
+    color: var(--pink);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Style the winner display area */
+#winner-display {
+    background-color: #FCE4EC;
+    border: 2px dashed var(--pink);
+    border-radius: 12px;
+    padding: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--green);
+    min-height: 80px;
+}
+
+/* Highlight the winner name */
+#winner-display .winner-name {
+    color: var(--pink);
+    font-size: 1.8rem;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Style the Draw button */
+#draw-button {
+    background-color: var(--pink);
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 17px 40px;
+    box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
+}
+
+/* Change the Draw button on hover */
+#draw-button:hover:not(:disabled) {
+    background-color: var(--green);
+    transform: scale(1.05);
+}
+
+/* Style the disabled Draw button */
+#draw-button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Style the footer */
+footer {
+    background-color: var(--green);
+    color: var(--white);
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Make the application responsive on mobile devices */
+@media (max-width: 600px) {
+
+    /* Reduce the heading size on smaller screens */
+    header h1 {
+        font-size: 2rem;
+    }
+
+    /* Reduce the main container spacing */
+    .container {
+        padding: 12px;
+        margin: 20px auto;
+    }
+
+    /* Reduce the section padding */
+    section {
+        padding: 20px;
+    }
+
+    /* Make the Draw button fit the available width */
+    #draw-button {
+        width: 100%;
+    }
+}
