@@ -209,3 +209,33 @@ footer {
         width: 100%;
     }
 }
+
+/* Style the Reset Raffle button */
+#reset-button {
+    background-color: var(--sage);
+    color: var(--green);
+    font-size: 1.1rem;
+    padding: 17px 40px;
+    margin-top: 15px;
+    margin-left: 10px;
+    border: 2px solid var(--green);
+}
+
+/* Change the Reset button when the mouse hovers over it */
+#reset-button:hover {
+    background-color: var(--green);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+/* Make both buttons responsive on mobile devices */
+@media (max-width: 600px) {
+
+    /* Display buttons at full width on small screens */
+    #reset-button,
+    #draw-button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+}

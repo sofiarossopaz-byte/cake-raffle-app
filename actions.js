@@ -1,133 +1,159 @@
 
-/* Create an empty array to store participant names */
+// Create an empty array to store participants
 let participants = [];
 
-/* Get the registration form from the HTML */
+// Get the registration form
 const participantForm = document.getElementById("participant-form");
 
-/* Get the name input field */
+// Get the name input field
 const nameInput = document.getElementById("participant-name");
 
-/* Get the participants list */
+// Get the participants list
 const participantsList = document.getElementById("participants-list");
 
-/* Get the participant counter */
+// Get the participant counter
 const participantCount = document.getElementById("participant-count");
 
-/* Get the Draw button */
+// Get the Draw button
 const drawButton = document.getElementById("draw-button");
 
-/* Get the winner display area */
+// Get the Reset button
+const resetButton = document.getElementById("reset-button");
+
+// Get the winner display area
 const winnerDisplay = document.getElementById("winner-display");
 
 
-/* Listen for the registration form submission */
+// REGISTER A NEW PARTICIPANT
 participantForm.addEventListener("submit", function(event) {
 
-    /* Prevent the browser from refreshing the page */
+    // Prevent the page from refreshing
     event.preventDefault();
 
-    /* Get the name entered by the participant */
+    // Get the participant's name
     const name = nameInput.value.trim();
 
-    /* Check that the name is not empty */
+    // Check that the name is not empty
     if (name === "") {
-
-        /* Display a warning if no name was entered */
         alert("Please enter a participant name!");
-
-        /* Stop the registration process */
         return;
     }
 
-    /* Add the participant name to the array */
+    // Add the name to the participants array
     participants.push(name);
 
-    /* Update the visible participants list */
+    // Update the participants list
     displayParticipants();
 
-    /* Clear the input field */
+    // Clear the input field
     nameInput.value = "";
 
-    /* Return the cursor to the input field */
+    // Focus on the input field
     nameInput.focus();
 
-    /* Clear the previous winner announcement */
+    // Reset the winner display
     winnerDisplay.textContent = "Your winner will appear here!";
 
 });
 
 
-/* Create a function to display all participants */
+// DISPLAY ALL PARTICIPANTS
 function displayParticipants() {
 
-    /* Clear the existing list before updating it */
+    // Clear the existing list
     participantsList.innerHTML = "";
 
-    /* Loop through every participant */
+    // Loop through the participants array
     participants.forEach(function(name, index) {
 
-        /* Create a new list item */
+        // Create a new list item
         const listItem = document.createElement("li");
 
-        /* Add the participant number and name */
+        // Display the participant number and name
         listItem.textContent = (index + 1) + ". " + name;
 
-        /* Insert the list item into the HTML list */
+        // Add the name to the participants list
         participantsList.appendChild(listItem);
 
     });
 
-    /* Update the total participant counter */
+    // Update the participant counter
     participantCount.textContent = participants.length;
 
-    /* Enable the Draw button when participants exist */
+    // Enable Draw button if participants exist
     drawButton.disabled = participants.length === 0;
 
 }
 
 
-/* Listen for a click on the Draw button */
+// DRAW A RANDOM WINNER
 drawButton.addEventListener("click", function() {
 
-    /* Check that there is at least one participant */
+    // Check if there are participants
     if (participants.length === 0) {
-
-        /* Display a warning if the list is empty */
         alert("Please add participants before drawing!");
-
-        /* Stop the drawing process */
         return;
     }
 
-    /* Generate a random participant index */
+    // Generate a random index
     const randomIndex = Math.floor(Math.random() * participants.length);
 
-    /* Select the winner from the participants array */
+    // Select the winner
     const winner = participants[randomIndex];
 
-    /* Display the winner's name with festive emojis */
+    // Clear the previous winner announcement
     winnerDisplay.innerHTML = "";
 
-    /* Create a heading for the winner announcement */
+    // Create the congratulations message
     const winnerMessage = document.createElement("span");
 
-    /* Add the winner announcement text */
+    // Set the announcement text
     winnerMessage.textContent = "🎉 Congratulations! 🎉";
 
-    /* Create an element for the winner's name */
+    // Create the winner name element
     const winnerName = document.createElement("span");
 
-    /* Add the selected participant's name */
+    // Display the winner's name with cake emojis
     winnerName.textContent = "🎂 " + winner + " 🎂";
 
-    /* Apply the winner name CSS class */
+    // Apply the winner CSS class
     winnerName.className = "winner-name";
 
-    /* Add the announcement to the winner display */
+    // Add the congratulations message
     winnerDisplay.appendChild(winnerMessage);
 
-    /* Add the winner's name to the winner display */
+    // Add the winner's name
     winnerDisplay.appendChild(winnerName);
+
+});
+
+
+// RESET THE RAFFLE
+resetButton.addEventListener("click", function() {
+
+    // Ask for confirmation before resetting
+    const confirmReset = confirm(
+        "Are you sure you want to reset the raffle?"
+    );
+
+    // Stop if the user cancels
+    if (!confirmReset) {
+        return;
+    }
+
+    // Clear all participants
+    participants = [];
+
+    // Update the participants list and counter
+    displayParticipants();
+
+    // Clear the name input field
+    nameInput.value = "";
+
+    // Reset the winner announcement
+    winnerDisplay.textContent = "Your winner will appear here!";
+
+    // Disable the Draw button
+    drawButton.disabled = true;
 
 });

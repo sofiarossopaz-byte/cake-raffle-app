@@ -10,22 +10,21 @@
 
     <title>Cake Raffle</title>
 
-    <!-- Link to the CSS stylesheet -->
+    <!-- Link to CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Link to the JavaScript file -->
+    <!-- Link to JavaScript -->
     <script src="actions.js" defer></script>
 </head>
 
 <body>
 
-    <!-- HEADER SECTION -->
+    <!-- HEADER -->
     <header>
         <h1>🎂 Cake Raffle 🎉</h1>
         <p>Join the fun and win a delicious cake!</p>
     </header>
 
-    <!-- MAIN APPLICATION CONTAINER -->
     <main class="container">
 
         <!-- PARTICIPANT ENTRY FORM -->
@@ -62,13 +61,11 @@
                 <span id="participant-count">0</span>
             </p>
 
-            <ul id="participants-list">
-                <!-- Participant names will appear here -->
-            </ul>
+            <ul id="participants-list"></ul>
 
         </section>
 
-        <!-- WINNER DISPLAY AREA -->
+        <!-- WINNER DISPLAY -->
         <section class="winner-section">
 
             <h2>🏆 The Lucky Winner</h2>
@@ -79,11 +76,15 @@
 
         </section>
 
-        <!-- DRAW BUTTON -->
+        <!-- DRAW AND RESET BUTTONS -->
         <section class="draw-section">
 
             <button type="button" id="draw-button" disabled>
                 🎉 Draw Winner 🎉
+            </button>
+
+            <button type="button" id="reset-button">
+                🔄 Reset Raffle
             </button>
 
         </section>
@@ -96,5 +97,4 @@
     </footer>
 
 </body>
-
 </html>
